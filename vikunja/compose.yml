@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  vikunja:
+    image: vikunja/vikunja
+    container_name: vikunja
+    hostname: vikunja
+    environment:
+      VIKUNJA_SERVICE_FRONTENDURL: https://tasks.connorrhodes.com/
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db # path within container to bind mount to
+      VIKUNJA_SERVICE_TIMEZONE: "America/Chicago"
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: false
+      VIKUNJA_SERVICE_ENABLETASKATTACHMENTS: true
+      VIKUNJA_SERVICE_ENABLEEMAILREMINDERS: false
+      VIKUNJA_MAILER_ENABLED: false
+      VIKUNJA_DEFAULTSETTINGS_EMAIL_REMINDERS_ENABLED: false
+      VIKUNJA_DEFAULTSETTINGS_OVERDUE_TASKS_REMINDERS_ENABLED: false
+    env_file:
+      - env_vikunja
+    volumes:
+      - /zssd/docker_data/vikunja/files:/app/vikunja/files
+      - /zssd/docker_data/vikunja/db:/db
+    restart: unless-stopped
+    networks:
+      - caddy_net
+
+networks:
+  caddy_net:
+    external: true
