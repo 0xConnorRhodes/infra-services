@@ -1,0 +1,5 @@
+.DS_Store
+.vaultsecrets.json
+# begin secrets
+vikunja/env_vikunja
+# end secrets
