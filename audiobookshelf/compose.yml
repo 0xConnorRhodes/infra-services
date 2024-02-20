@@ -1,0 +1,19 @@
+---
+version: '3.3'
+services:
+  audiobookshelf:
+    image: advplyr/audiobookshelf
+    user: "1000:1000"
+    container_name: audiobookshelf
+    hostname: audiobookshelf
+    restart: unless-stopped
+    volumes:
+      - /zssd/docker_data/audiobookshelf/config:/config
+      - /zssd/docker_data/audiobookshelf/metadata:/metadata
+      - /zstore/media/podcasts/ashelf_podcasts:/podcasts
+    networks:
+      - caddy_net
+
+networks:
+  caddy_net:
+    external: true
