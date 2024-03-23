@@ -1,2 +1,4 @@
 *.yml linguist-language=YAML
+**/*.yml linguist-language=YAML
 *.yaml linguist-language=YAML
+**/*.yaml linguist-language=YAML
