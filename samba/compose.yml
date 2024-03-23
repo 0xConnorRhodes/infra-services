@@ -1,0 +1,14 @@
+services:
+  samba:
+    container_name: samba
+    image: samba:latest # built locally
+    ports:
+      - 445:445
+      - 139:139
+    volumes:
+      - ./smb.conf:/etc/samba/smb.conf
+      - /mnt/samba/share:/mnt/share
+      # add other shares as bind-mounts here as needed
+    env_file:
+      - env_samba
+    restart: no

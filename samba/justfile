@@ -1,0 +1,6 @@
+build:
+	docker image build -t samba .
+up:
+	docker compose up -d --force-recreate
+down:
+	docker compose down
