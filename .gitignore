@@ -2,4 +2,6 @@
 .vaultsecrets.json
 # begin secrets
 vikunja/env_vikunja
+samba/env_samba
+samba/smb.conf
 # end secrets
