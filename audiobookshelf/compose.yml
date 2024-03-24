@@ -10,6 +10,7 @@ services:
     volumes:
       - /zssd/docker_data/audiobookshelf/config:/config
       - /zssd/docker_data/audiobookshelf/metadata:/metadata
+      - /zstore/media/audiobooks/audiobookshelf:/audiobooks
       - /zstore/media/podcasts/ashelf_podcasts:/podcasts
     networks:
       - caddy_net
