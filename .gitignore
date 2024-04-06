@@ -1,7 +1,10 @@
 .DS_Store
 .vaultsecrets.json
+.env
 # begin secrets
 vikunja/env_vikunja
 samba/env_samba
 samba/smb.conf
+immich/.env
+immich/env_immich
 # end secrets
