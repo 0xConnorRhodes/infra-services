@@ -22,14 +22,10 @@ services:
     container_name: immich_microservices
     user: '1000:1000'
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
-    # extends:
-    #   file: hwaccel.yml
-    #   service: hwaccel
     command: [ "start.sh", "microservices" ]
     volumes:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
-#     - geocoding_nonroot:/usr/src/app/.reverse-geocoding-dump
     env_file:
       - .env
     depends_on:
@@ -45,7 +41,6 @@ services:
   database:
     container_name: immich_postgres
     user: '1000:1000'
-   #image: tensorchord/pgvecto-rs:pg14-v0.1.11@sha256:0335a1a22f8c5dd1b697f14f079934f5152eaaa216c09b61e293be285491f8ee
     image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     env_file:
       - .env
@@ -56,6 +51,3 @@ services:
     volumes:
       - /zssd/docker_data/immich/db:/var/lib/postgresql/data
     restart: always
-
-      #volumes:
-# geocoding_nonroot:
