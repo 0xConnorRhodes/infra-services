@@ -8,6 +8,7 @@ services:
     volumes:
       - ./smb.conf:/etc/samba/smb.conf
       - /mnt/samba/share:/mnt/share
+      - /zstore/data/clones:/mnt/clones
       # add other shares as bind-mounts here as needed
     env_file:
       - env_samba
