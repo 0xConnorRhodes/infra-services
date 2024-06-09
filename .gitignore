@@ -7,4 +7,5 @@ samba/env_samba
 samba/smb.conf
 immich/.env
 immich/env_immich
+webtop/env_webtop
 # end secrets
