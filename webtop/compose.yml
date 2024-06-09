@@ -16,8 +16,8 @@ services:
     restart: no
     expose:
       - 3000 # http
-   #volumes:
-     #- home:/config
+    volumes:
+      - home:/config
     shm_size: "1gb" # set larger shared memory size
     networks:
       - caddy_net
