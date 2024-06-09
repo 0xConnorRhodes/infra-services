@@ -17,14 +17,11 @@ services:
     expose:
       - 3000 # http
     volumes:
-      - home:/config
+     #- /zssd/docker_data/webtop/home_persistent:/config/persistent
+      - /zssd/docker_data/webtop/home:/config
     shm_size: "1gb" # set larger shared memory size
     networks:
       - caddy_net
-
-volumes:
-  home:
-    name: webtop_home
 
 networks:
   caddy_net:
