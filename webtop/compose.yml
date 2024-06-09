@@ -1,0 +1,31 @@
+---
+services: 
+  webtop:
+    image: lscr.io/linuxserver/webtop:alpine-icewm
+    container_name: webtop
+    hostname: webtop
+    security_opt:
+      - seccomp:unconfined #optional
+    env_file:
+      - env_webtop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - TITLE=Webtop # website name in browser
+    restart: no
+    expose:
+      - 3000 # http
+   #volumes:
+     #- home:/config
+    shm_size: "1gb" # set larger shared memory size
+    networks:
+      - caddy_net
+
+volumes:
+  home:
+    name: webtop_home
+
+networks:
+  caddy_net:
+    external: true
