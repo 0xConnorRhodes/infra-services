@@ -6,8 +6,6 @@ services:
     hostname: webtop
     security_opt:
       - seccomp:unconfined #optional
-    env_file:
-      - env_webtop
     environment:
       - PUID=1000
       - PGID=1000
@@ -19,7 +17,7 @@ services:
     volumes:
      #- /zssd/docker_data/webtop/home_persistent:/config/persistent
       - /zssd/docker_data/webtop/home:/config
-    shm_size: "1gb" # set larger shared memory size
+    shm_size: "4gb" # set larger shared memory size
     networks:
       - caddy_net
 
