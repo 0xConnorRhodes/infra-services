@@ -1,0 +1,22 @@
+services:
+  gossa-server:
+    image: pldubouilh/gossa
+    container_name: gossa-papers
+    hostname: gossa-papers
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+      - PREFIX=/
+      - PORT=8001
+      - FOLLOW_SYMLINKS=true
+      - SKIP_HIDDEN_FILES=true
+      - DATADIR=/files
+    volumes:
+      - /zstore/data/records/papers:/files
+    networks:
+      - caddy_net
+
+networks:
+  caddy_net:
+    external: true
