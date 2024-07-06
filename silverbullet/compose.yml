@@ -1,0 +1,19 @@
+services:
+  silverbullet:
+    image: zefhemel/silverbullet
+    container_name: silverbullet
+    hostname: silverbullet
+    restart: unless-stopped
+    volumes:
+      - notes:/space
+    networks:
+      - caddy_net
+
+volumes:
+  notes:
+    name: notes
+    external: true
+
+networks:
+  caddy_net:
+    external: true
