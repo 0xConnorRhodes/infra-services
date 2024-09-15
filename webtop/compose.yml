@@ -16,7 +16,7 @@ services:
       - 3000 # http
     volumes:
      #- /zssd/docker_data/webtop/home_persistent:/config/persistent
-      - /zssd/docker_data/webtop/home:/config
+     #- /zssd/docker_data/webtop/home:/config
       - /mnt/nfs/media:/media
     shm_size: "4gb" # set larger shared memory size
     networks:
