@@ -1,0 +1,21 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    hostname: navidrome
+    container_name: navidrome
+    restart: unless-stopped
+    expose:
+      - "4533"
+    environment:
+      ND_SCANINTERVAL: 24h
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 720h
+    volumes:
+      - /zssd/docker_data/navidrome/data:/data
+      - /zstore/media/music/music_library/music_library:/music:ro
+    networks:
+      - caddy_net
+
+networks:
+  caddy_net:
+    external: true
