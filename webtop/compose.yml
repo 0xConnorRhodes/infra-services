@@ -17,7 +17,9 @@ services:
     volumes:
      #- /zssd/docker_data/webtop/home_persistent:/config/persistent
      #- /zssd/docker_data/webtop/home:/config
-      - /mnt/nfs/media:/media
+      - /mnt/nfs/media:/mnt/media
+      - /zstore/media/music/music_library/music_library:/mnt/music
+      - /zstore/files:/mnt/files
     shm_size: "4gb" # set larger shared memory size
     networks:
       - caddy_net
