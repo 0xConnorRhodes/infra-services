@@ -5,7 +5,7 @@ services:
     hostname: silverbullet
     restart: unless-stopped
     volumes:
-      - /zssd/notes:/space
+      - /zssd/notes/zk_notes:/space
     networks:
       - caddy_net
 
