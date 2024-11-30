@@ -9,7 +9,7 @@ services:
     environment:
       ND_SCANINTERVAL: 24h
       ND_LOGLEVEL: info
-      ND_SESSIONTIMEOUT: 720h
+      ND_SESSIONTIMEOUT: 4380h
     volumes:
       - /zssd/docker_data/navidrome/data:/data
       - /zstore/media/music/music_library/music_library:/music:ro
